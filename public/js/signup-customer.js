@@ -29,7 +29,7 @@ const addAlert = ({ alertType, alertContent }) => {
     &nbsp;&nbsp;
     <label id="alertContent">${alertContent}</label>
     </div>
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <span class="closebtn" onclick="this.parentElement.remove()">&times;</span>
 </div>`;
 }
 

@@ -3,6 +3,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 #alerts .alert {
   display: flex;
