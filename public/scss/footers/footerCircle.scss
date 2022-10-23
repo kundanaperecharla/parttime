@@ -1,0 +1,22 @@
+.parent {
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    .footer-rectangle{
+        height: 100px;
+        background-color: #708FFF;
+        opacity: 30%;
+        z-index: 1;
+    }
+    .footer-circle{
+        position: absolute;
+        top: -60px;
+        left: 60px;
+        z-index: 2;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        background-color: #708FFF;
+    }
+}

@@ -1,0 +1,26 @@
+@media (min-width: 481px) and (max-width: 1024px) {
+  #home .content #postloader {
+    min-height: calc(100vh - 290px);
+  }
+  #home .content #postloader .cards .card .container .avatar .mobile {
+    display: none;
+  }
+  #home .content #postloader .cards .card .container .avatar .desktop-tablet {
+    display: block;
+  }
+  #home #preloader .animation {
+    display: none;
+  }
+  #home #preloader .image {
+    height: calc(100vh - 240px);
+  }
+  #home #preloader .mobile,
+#home #preloader .desktop {
+    display: none;
+  }
+  #home #preloader .tablet {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=prehome-tablet.css.map */

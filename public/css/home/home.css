@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FBFCFE;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+body #content {
+  margin: 0 20px;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+body #content #welcome {
+  font-size: 30px;
+  padding-top: 80px;
+}
+body #content #ask {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body #content #ask #search-bar {
+  background-color: rgba(112, 143, 255, 0.4509803922);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+}
+body #content #ask #search-bar input {
+  width: 294px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  font-family: "Poppins";
+}
+body #content #ask #search-bar ::placeholder {
+  opacity: 0.5;
+}
+body #content button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #708FFF;
+  color: white;
+  font-size: 20px;
+  font-family: "Poppins";
+  letter-spacing: 0.5px;
+}
+body #content button i {
+  align-self: center;
+}
+
+/*# sourceMappingURL=home.css.map */

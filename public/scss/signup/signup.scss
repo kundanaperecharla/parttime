@@ -1,0 +1,97 @@
+// remove arrows to in/decrement number in input field
+// Chrome
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// Firefox
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FBFCFE;
+    font-family: 'Poppins';
+
+    #forms {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        form {
+            height: calc(100vh - 100px);
+            margin: 0 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+
+            label {
+                color: #708FFF;
+                font-size: 20px;
+            }
+
+            p {
+                text-decoration: underline;
+                font-size: 15px;
+                color: black;
+                cursor: pointer;
+                // margin: 0;
+                margin-block-start: 0;
+                margin-block-end: 0;
+            }
+
+            input {
+                width: 330px;
+                height: 50px;
+                border: none;
+                background-color: #708FFF73;
+                outline: none;
+                border-radius: 10px;
+
+                font-size: 20px;
+                text-align: center;
+                font-weight: 100;
+                letter-spacing: 0.5px;
+                font-family: 'Poppins';
+
+                align-self: center;
+            }
+
+            ::placeholder {
+                opacity: 0.5;
+            }
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 130px;
+                height: 50px;
+                margin-top: 25px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+
+                background-color: #708FFF;
+                color: white;
+                font-size: 20px;
+                font-family: 'Poppins';
+                letter-spacing: 0.5px;
+
+
+                align-self: flex-end;
+
+                i {
+                    align-self: center;
+                }
+            }
+        }
+    }
+}

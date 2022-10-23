@@ -1,0 +1,67 @@
+@media screen and (max-width: 480px) {
+    #home {
+        .title {
+            font-size: 30px;
+            margin-top: 70px;
+        }
+
+        .content {
+            #postloader {
+                min-height: calc(100vh - 215px);
+
+                #iAmA {
+                    font-size: 20px;
+                    margin: 40px 0 20px 0;
+                }
+
+                .cards {
+                    .card {
+                        height: 150px;
+
+                        .container {
+                            .avatar {
+
+                                .desktop-tablet {
+                                    display: none;
+                                }
+
+                                .mobile {
+                                    display: block;
+                                }
+                            }
+
+                            .text {
+                                .type {
+                                    font-size: 20px;
+                                }
+
+                                .description {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #preloader {
+            .animation {
+                display: block;
+            }
+
+            .image {
+                height: calc(100vh - 115px);
+            }
+
+            .mobile {
+                display: block;
+            }
+
+            .tablet,
+            .desktop {
+                display: none;
+            }
+        }
+    }
+}

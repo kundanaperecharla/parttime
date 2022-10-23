@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-350 0 600 600" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="filter-1" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 6 4 0.25 rgba(0,0,0,0.3)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="6"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-1" type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="filter-2" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 2 4 0.5 rgba(0,0,0,0.3)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-3" type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- bottom right circle-->
+  <ellipse style="fill: rgb(112, 143, 255);" cx="170" cy="270" rx="115" ry="115"/>
+
+  <!-- white circle 1 -->
+  <ellipse style="fill: rgb(254, 255, 254); filter: url(#filter-1);" cx="65" cy="100" rx="32" ry="32"/>
+  <!-- circle 2 -->
+  <ellipse style="fill: rgb(254, 255, 254); filter: url(#filter-1);" cx="135" cy="75" rx="32" ry="32"/>
+  <!-- circle 3 -->
+  <ellipse style="fill: rgb(254, 255, 254); filter: url(#filter-1);" cx="125" cy="150" rx="32" ry="32"/>
+
+  <!-- bottom left circle-->
+  <ellipse style="filter: url(#filter-2); fill: rgb(188, 203, 255);" cx="30" cy="200" rx="60" ry="60"/>
+
+  <!-- clock icon -->
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 50 80 L 65 100 L 80 88"/>
+
+  <!-- bag icon -->
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 125 65 L 123.5 88 L 146.5 88 L 145 65 L 125 65"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 127 63 L 143 63"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 127 63 L 125 65"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 143 63 L 145 65"/>
+  <!-- bag string -->
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 130 68 L 140 68"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 130 68 C 130 68, 135 48, 140 68"/>
+
+
+  <!-- currency icon -->
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 115 140 L 135 140"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 120 140 C 120 140, 145 147.5, 115 155 L 130 165"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 115 147 L 135 146.5"/>
+
+  <!-- two arcs -->
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 43 150 C 43 150, 50 175, 85 180"/>
+  <path style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 0.5px;" d="M 36 155 C 36 155, 45 183, 80 187"/>
+</svg>

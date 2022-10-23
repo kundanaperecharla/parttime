@@ -1,0 +1,52 @@
+#alerts {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#alerts .alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+  padding: 15px;
+  background-color: rgba(235, 77, 44, 0.2509803922);
+  color: black;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin: 15px 10px 0 15px;
+  border-radius: 20px;
+}
+#alerts .alert .toLeft {
+  display: flex;
+}
+#alerts .alert.success {
+  background-color: rgba(63, 191, 97, 0.2509803922);
+}
+#alerts .alert.info {
+  background-color: rgba(1, 110, 228, 0.2509803922);
+}
+#alerts .alert.warning {
+  background-color: rgba(235, 77, 44, 0.2509803922);
+}
+#alerts .closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#alerts .closebtn :hover {
+  color: black;
+}
+
+@media screen and (max-width: 1024px) {
+  #alerts .alert {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=alert.css.map */

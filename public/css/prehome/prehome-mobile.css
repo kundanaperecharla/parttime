@@ -1,0 +1,43 @@
+@media screen and (max-width: 480px) {
+  #home .title {
+    font-size: 30px;
+    margin-top: 70px;
+  }
+  #home .content #postloader {
+    min-height: calc(100vh - 215px);
+  }
+  #home .content #postloader #iAmA {
+    font-size: 20px;
+    margin: 40px 0 20px 0;
+  }
+  #home .content #postloader .cards .card {
+    height: 150px;
+  }
+  #home .content #postloader .cards .card .container .avatar .desktop-tablet {
+    display: none;
+  }
+  #home .content #postloader .cards .card .container .avatar .mobile {
+    display: block;
+  }
+  #home .content #postloader .cards .card .container .text .type {
+    font-size: 20px;
+  }
+  #home .content #postloader .cards .card .container .text .description {
+    font-size: 12px;
+  }
+  #home #preloader .animation {
+    display: block;
+  }
+  #home #preloader .image {
+    height: calc(100vh - 115px);
+  }
+  #home #preloader .mobile {
+    display: block;
+  }
+  #home #preloader .tablet,
+#home #preloader .desktop {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=prehome-mobile.css.map */

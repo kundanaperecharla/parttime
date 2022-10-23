@@ -1,0 +1,59 @@
+.pagetransitions {
+    &_transition {
+        div {
+            width: 220px;
+            height: 220px;
+            background: white;
+            position: absolute;
+            transform: scale(0);
+            z-index: 1;
+        }
+
+        .split_diagonal_alt {
+            animation: diamond 1.2s;
+            transform: scale(0) rotate(45deg);
+        }
+
+        &__part-1 {
+            left: -100px;
+            top: -100px;
+
+            &.split_diagonal_alt {
+                display: none;
+            }
+        }
+
+        &__part-2 {
+            bottom: -100px;
+            left: -100px;
+        }
+
+        &__part-3 {
+            top: -100px;
+            right: -100px;
+        }
+
+        &__part-4 {
+            bottom: -100px;
+            right: -100px;
+
+            &.split_diagonal_alt {
+                display: none;
+            }
+        }
+    }
+
+    @keyframes diamond {
+        0% {
+            transform: rotate(45deg) scale(0)
+        }
+
+        50% {
+            transform: rotate(45deg) scale(10)
+        }
+
+        100% {
+            transform: rotate(45deg) scale(0)
+        }
+    }
+}

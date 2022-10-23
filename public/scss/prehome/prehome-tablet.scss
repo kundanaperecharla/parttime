@@ -1,0 +1,45 @@
+@media (min-width: 481px) and (max-width: 1024px) {
+    #home {
+        .content {
+            #postloader {
+                min-height: calc(100vh - 290px);
+
+                .cards {
+                    .card {
+                        .container {
+                            .avatar {
+
+                                .mobile {
+                                    display: none;
+                                }
+
+                                .desktop-tablet {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #preloader {
+            .animation {
+                display: none;
+            }
+
+            .image {
+                height: calc(100vh - 240px);
+            }
+
+            .mobile,
+            .desktop {
+                display: none;
+            }
+
+            .tablet {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#home {
+  background-color: rgba(112, 143, 255, 0.3019607843);
+  font-family: "Poppins";
+}
+#home .title {
+  font-size: 60px;
+  margin-top: 100px;
+  text-align: center;
+}
+#home .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+#home .content #postloader {
+  text-align: center;
+  min-height: calc(100vh - 290px);
+}
+#home .content #postloader #iAmA {
+  font-size: 30px;
+  margin: 60px 0 30px 0;
+}
+#home .content #postloader .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 20px;
+}
+#home .content #postloader .cards .card {
+  box-shadow: 5px 10px 17px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 30px;
+  background-color: #FEFEFE;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .content #postloader .cards .card:focus-visible, #home .content #postloader .cards .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
+  outline: none;
+}
+#home .content #postloader .cards .card .container {
+  padding: 2px 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#home .content #postloader .cards .card .container .avatar .mobile {
+  display: none;
+}
+#home .content #postloader .cards .card .container .avatar .desktop-tablet {
+  display: block;
+}
+#home .content #postloader .cards .card .container .text {
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+}
+#home .content #postloader .cards .card .container .text .type {
+  font-size: 30px;
+  margin: 0px;
+}
+#home .content #postloader .cards .card .container .text .description {
+  font-size: 15px;
+  color: #9C9898;
+}
+#home #preloader .animation {
+  display: none;
+}
+#home #preloader .image {
+  width: 100%;
+  height: calc(100vh - 190px);
+  object-fit: cover;
+  object-position: 0px 0px;
+}
+#home #preloader .mobile,
+#home #preloader .tablet {
+  display: none;
+}
+#home #preloader .desktop {
+  display: block;
+}
+
+/*# sourceMappingURL=prehome.css.map */
