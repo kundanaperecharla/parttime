@@ -1,0 +1,14 @@
+- handle errors
+- rename signup (we're logging also)
+- send otps - AWS SNS?
+- set otp expiry time to 5mins
+- What if a customer wants to be a helper as well, not everyone can have 2 mobile numbers
+- replace friend with helper after deciding with Pinks
+- footer with circle needs upgrade, not looking good on desktop
+- otp when regenerated, show a message saying OTP resent to your mobbile
+- when offline? 
+will it work
+if not, show a alert that you're offline
+- app notifications - not otp or alets
+- skeleton loading
+
