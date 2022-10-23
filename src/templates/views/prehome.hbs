@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    {{>header}}
+    {{>imports}}
+</head>
+
+<body id="home">
+    <header class="title">Part time</header>
+
+    <div id="preloader">
+        {{!-- todo do we need this after adding page transition? --}}
+        {{!-- if yes, go also change the mobile height - line 53 home-mobile.scss - height: calc(100vh - xxx); --}}
+        {{!-- {{>preloaderanimation}} --}}
+        <img class="image mobile" src="../../img/preloader-mobile.svg">
+        <img class="image tablet" src="../../img/preloader-tablet.svg">
+        <img class="image desktop" src="../../img/preloader-desktop.svg">
+    </div>
+
+    {{>pagetransition}}
+
+    <div class="content">
+        {{>postloader}}
+    </div>
+
+    <footer id="footer">
+        {{>footer}}
+    </footer>
+
+    <script>
+        document.getElementById("preloader").style.display = "block";
+        document.getElementById("postloader").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+
+        setTimeout(userTypeSelection, 1600); // todo change the time
+        function userTypeSelection() {
+            document.getElementById("preloader").style.display = "none";
+            document.getElementById("postloader").style.display = "block";
+            document.getElementById("footer").style.display = "block";
+        }
+    </script>
+    <script src="../../js/customer-helper-card-click.js"></script>
+</body>

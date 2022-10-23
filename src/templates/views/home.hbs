@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<header>
+    {{>header}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/home/home.css">
+    <link rel="stylesheet" href="../../css/home/home-mobile.css">
+    <link rel="stylesheet" href="../../css/footers/footerCircle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</header>
+
+<body>
+    <div id="content">
+        <label id="welcome">Welcome!</label>
+
+        <form id="ask">
+            <label> I am looking for ...</label>
+            <div id="search-bar">
+                <input placeholder="eggs, xerox, ride...">
+                <i class="search-icon material-icons">search</i>
+            </div>
+        </form>
+
+        <div id="suggestions">
+
+        </div>
+
+        <button>View all services&nbsp;<i class="material-icons">arrow_forward</i></button>
+    </div>
+
+    <footer id="footer">
+        {{>footerCircle}}
+    </footer>
+</body>
