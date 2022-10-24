@@ -47,6 +47,7 @@ usersSchema.virtual('helperRequests', {
 });
 
 // deleting all requests by user when user profile is deleted
+// todo is this needed
 usersSchema.pre("remove", async function (next) {
     const user = this;
     await Requests.deleteMany({
@@ -72,42 +73,6 @@ usersSchema.statics.isNewUser = async function (mobile) {
         throw new Error(e);
     }
 }
-
-// Todo: refactor this, just one allowedUpdates
-usersSchema.statics.updateProfile = async function (req) {
-    const requestedUpdates = Object.keys(req.body);
-    const allowedUpdates = ["name"];
-
-    let invalidUpdates = [];
-    let isValidUpdate = true;
-
-    isValidUpdate = requestedUpdates.every((update) => {
-        if (!allowedUpdates.includes(update)) {
-            invalidUpdates.push(update);
-            return false;
-        }
-        return true;
-    });
-
-    if (!isValidUpdate) {
-        return {
-            error: `Invalid update. You cannot update the fields ${invalidUpdates.join(", ")}`,
-            user: undefined
-        }
-    }
-
-    try {
-        requestedUpdates.forEach(update => req.user[update] = req.body[update]);
-        await req.user.save();
-
-        return {
-            error: undefined,
-            user: req.user
-        }
-    } catch (e) {
-        throw new Error(e);
-    }
-};
 
 // Methods on user
 usersSchema.methods.generateAuthToken = async function () {

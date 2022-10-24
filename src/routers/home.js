@@ -14,7 +14,7 @@ router.get('/home', (req, res) => {
 });
 
 router.get('/profile', auth, (req, res) => {
-    res.render('home');
+    res.render('profile');
 });
 
 module.exports = router;
