@@ -60,7 +60,6 @@ io.on('connection', (socket) => {
         }
     };
 
-
     const regenerateOTP = async (mobile) => {
         try {
             await OTPs.deleteOne({ mobile });
@@ -133,17 +132,50 @@ io.on('connection', (socket) => {
             (err, res) => {
                 if (err)
                     console.error('error', err);
-                else if (res){
+                else if (res) {
                     socket.emit('redirectToHome');
                 }
             }
         );
     };
 
+    // ---------------------------------------------------------------------------------------------
+
+    const getProfile = (baseURL) => {
+        needle.get(baseURL + '/profileDetails', function (err, res) {
+            if (err) {
+                console.error('error', err);
+            }
+            else if (res.statusCode == 200) {
+                socket.emit('postProfile', res.body)
+            }
+        });
+    };
+
+    const saveNameChanges = (newName, baseURL) => {
+        needle.patch(
+            baseURL + '/updateName',
+            { newName },
+            { json: true },
+            function (err, res) {
+                if (err) {
+                    console.error('error', err);
+                }
+                else if (res.statusCode == 200) {
+                    socket.emit('postNameChange', res.body.name)
+                }
+            });
+    };
+
+    // ---------------------------------------------------------------------------------------------
+
     socket.on('mobileInputted', generateOTP);
     socket.on('otpInputted', validateOTP);
     socket.on('nameInputted', createRecord);
     socket.on('resendOTPRequested', regenerateOTP);
+
+    socket.on('getProfile', getProfile);
+    socket.on('saveNameChanges', saveNameChanges);
 });
 
 server.listen(port);

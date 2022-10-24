@@ -11,4 +11,44 @@ will it work
 if not, show a alert that you're offline
 - app notifications - not otp or alets
 - skeleton loading
+- move bulk imports in head to new file - but differnt hbs will have different imports - check!
+- split index.js into files
+
+- UI designs needed for
+    - 404 page
+    - not authorized page
+    - profile (view, edit, delete)
+    - Customer creating and waiting for a request page
+    - Helper working on request page
+    - My requests
+        - Ongoing
+        - Past
+
+- Pinks
+    - alert on form page
+        - enter 10 digit number - decide - as an alert on top or below the input field?
+        - 
+
+- below routers usage from via postman to via UI
+    - customer & helper
+        - profile
+        - profile update
+        - delete profile
+        - logout
+        - logoutall
+        - my requests (customer & helper)
+        - add work note under a request (customer & helper)
+
+    - Helpers only
+        - accept
+        - click finishWork
+        - confirmPayment
+        - closeincomplete
+        - (NOT VIA UI) - duplicateRequest
+
+    - Customers only
+        - new request
+        - get a request details by its ID
+        - cancel a request
+        
 
