@@ -68,7 +68,7 @@ router.post('/logoutall', auth, async (req, res) => {
     }
 });
 
-router.get('/users/me', [auth, customerOrHelperAuth], async (req, res) => {
+router.get('/profileDetails', [auth, customerOrHelperAuth], async (req, res) => {
     try {
         const whoseRequests = req.user.type === 'customer' ? 'customerRequests' : req.user.type === 'helper' ? 'helperRequests' : null;
         await req.user.populate(whoseRequests);
@@ -81,22 +81,25 @@ router.get('/users/me', [auth, customerOrHelperAuth], async (req, res) => {
     }
 });
 
-router.patch('/users/me/updateProfile', auth, async (req, res) => {
+router.patch('/updateName', auth, async (req, res) => {
     try {
-        const { error, user } = await Users.updateProfile(req);
-
-        if (error) res.status(500).send(error);
-
-        else if (user) {
+        const user = await Users.findOneAndUpdate({
+            _id: req.user._id
+        }, {
+            name: req.body.newName
+        }, {
+            new: true
+        });
+        if (user) {
             const protectedUser = user.toJSON();
-            res.send(`Profile update successful. New profile: ${JSON.stringify(protectedUser, null, 4)}`);
+            res.send(protectedUser);
         }
     } catch (e) {
         res.status(500).send(e);
     }
 });
 
-router.delete('/users/me', auth, async (req, res) => {
+router.delete('/profile', auth, async (req, res) => {
     try {
         await req.user.remove();
         res.send(`Deleted your profile successfully, Bye ${req.user.name}`);

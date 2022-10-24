@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body onload="renderProfile()">
+    Profile page
+
+    <div id="name">
+        <label>Name</label>
+        <div id="profile-name">
+
+        </div>
+        <input type="text" id="profile-name-edit-input">
+        <button id="edit-name-button">
+            <i class="search-icon material-icons">edit</i>
+        </button>
+        <button id="save-name-changes-button">
+            <i class="search-icon material-icons">done</i>
+        </button>
+        <button id="discard-name-changes-button">
+            <i class="search-icon material-icons">close</i>
+        </button>
+    </div>
+
+    <div id="mobile">
+        <label>Mobile</label>
+        <div id="profile-mobile">
+
+        </div>
+    </div>
+
+    <div id="requests">
+        <label>Requests</label>
+        <div id="profile-requests">
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("profile-name-edit-input").style.display = "none";
+        document.getElementById("save-name-changes-button").style.display = "none";
+        document.getElementById("discard-name-changes-button").style.display = "none";
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../js/profile.js"></script>
+</body>
