@@ -1,3 +1,5 @@
+- 2nd Nov monring: mapsjsutto autoc omplete not working
+
 - handle errors
 - rename signup (we're logging also)
 - send otps - AWS SNS?
@@ -11,4 +13,97 @@ will it work
 if not, show a alert that you're offline
 - app notifications - not otp or alets
 - skeleton loading
+- move bulk imports in head to new file - but differnt hbs will have different imports - check!
+- split index.js into files
+- check helperAuth works or not
+- website to app
+- restrict API key to website and API calls - https://www.youtube.com/watch?v=CdDXbvBFXLY
+- autocomplete places
+- current location as map center
+- set location by picking on map instead of typing text
+- Pinks to add back arrow button
+- groceries from a fixed shop? dmart eg
+- some helper verification - even if they fly away stealing, we can catch them. How? Aadhaar? Driving's License?
+- Pinks: Check the flow 
+    - location screen show/hide
+        - From & To
+        - Only To
+    - mode of transport S/H
+    - list of items
+- li click - navigate to appropriate screen
+    - JQuery? to get the id
+- pages show/hide boolean for request creation
+    - location
+        - just to
+        - from and to
+    - mode of transport
+        - car
+        - auto
+        - bike
+    - list of items
+        - groceries
+        - order from restaurants
+    - price
+
+- show preview of uploaded photos
+
+- allow multiple photo upload
+- don't allow going back in few situations
+- unknown items - cal option and ask for price too
+- if has to come to from and go to to and come back to from (xerox) - charge extra for first trip to from
+    - for that, do: cost = from->to + to->from 
+    - and not just to->from
+- note time for time based ones - dog walking, waiting in queue
+- ask tutors to give price/time inputs beforehand and customers can choose one
+- check if this causes an issue - 
+        removing in signup.hbs
+            <script>
+                function focusInput() {
+                    document.getElementById("input1").focus();
+                }
+            </script>
+- hide submit button on few pages
+
+- Needs money:
+    - If google map requests exceed limit - check what is the limit
+    - For from and to to auto show on map (without needing to click sumit to trigger API) v2? or v1?
+- FREE CREDITS NOT APPLIED
+
+- UI designs needed for
+    - 404 page
+    - not authorized page
+    - profile (view, edit, delete)
+    - Customer creating and waiting for a request page
+    - Helper working on request page
+    - My requests
+        - Ongoing
+        - Past
+
+- Pinks
+    - alert on form page
+        - enter 10 digit number - decide - as an alert on top or below the input field?
+        - 
+
+- below routers usage from via postman to via UI
+    - customer & helper
+        - profile
+        - profile update
+        - delete profile
+        - logout
+        - logoutall
+        - my requests (customer & helper)
+        - add work note under a request (customer & helper)
+
+    - Helpers only
+        - accept
+        - click finishWork
+        - confirmPayment
+        - closeincomplete
+        - (NOT VIA UI) - duplicateRequest
+
+    - Customers only
+        - new request
+        - get a request details by its ID
+        - cancel a request
+        
 

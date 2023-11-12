@@ -1,8 +1,8 @@
 const socket = io();
 
-const mobileForm = document.querySelector('form[id="mobileForm');
-const otpForm = document.querySelector('form[id="otpForm');
-const nameForm = document.querySelector('form[id="nameForm');
+const mobileForm = document.querySelector('form[id="mobileForm"]');
+const otpForm = document.querySelector('form[id="otpForm"]');
+const nameForm = document.querySelector('form[id="nameForm"]');
 
 document.getElementById('otpForm').style.display = 'none';
 document.getElementById('nameForm').style.display = 'none';
