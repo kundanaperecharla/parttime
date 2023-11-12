@@ -11,6 +11,42 @@ const router = new express.Router();
 
 const workNotes = 'workNotes';
 
+router.get('/new-request/pricing', [auth, customerAuth], (req, res) => {
+    res.render('pricing');
+});
+
+router.get('/new-request', [auth, customerAuth], (req, res) => {
+    // todo: only one page for all request methods or ?
+    const allowedRequestTypes = ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010'];
+    let to_input_label = 'To:';
+    switch (req.query.type) {
+        case '001':
+        case '009':
+        case '004':
+            to_input_label = "Deliver to:";
+            break;
+        case '003':
+        case '007':
+        case '008':
+            to_input_label = "Where:";
+            break;
+
+        default:
+            break;
+    }
+    if (allowedRequestTypes.includes(req.query.type)) {
+        res.render('newRequest', {
+            MAPS_URL: process.env.MAPS_URL,
+            type: req.query.type,
+            to_input_label
+        });
+    } else {
+        res.render('404', {
+            message: "Invalid request type"
+        });
+    }
+});
+
 router.post('/request', [auth, customerAuth], async (req, res) => {
     try {
         let transformedWorkNotes = [];
@@ -22,7 +58,7 @@ router.post('/request', [auth, customerAuth], async (req, res) => {
             transformedWorkNotes = transformedWorkNotes.concat(`(${timeNow}) ${currentUserName} says: ${newWorkNote}`); // TODO: new line while on app or html            
         }
         const request = new Requests({
-            ...req.body,
+            title: req.body.title,
             owner: req.user._id,
             workNotes: transformedWorkNotes,
             status: 'pendingDispatch'

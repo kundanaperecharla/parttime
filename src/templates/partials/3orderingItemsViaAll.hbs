@@ -1,0 +1,42 @@
+<div>
+    <div id="mode-selection">
+        <div class="cards">
+            {{!-- todo: v2
+            <div class="card" id="select-from-menu-card" tabindex="0">
+                <div class="container">
+                    <p class="type">Select items on menu</p>
+                </div>
+            </div> --}}
+            <div class="card" id="type-items-card" tabindex="0">
+                <div class="container">
+                    {{!--  // todo: rename this --}}
+                    <p class="type">Type items</p>
+                </div>
+            </div>
+            <div class="card" id="upload-card" tabindex="0">
+                <div class="container">
+                    <p class="type">Upload photo</p>
+                </div>
+            </div>
+            <div class="card" id="call-card" tabindex="0">
+                <div class="container">
+                    <p class="type">Get a call from us and order your items</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mode-selected">
+        <div id="type-items">
+            {{>typeItems}}
+        </div>
+        <div id="file-upload-selected">
+            {{>fileUpload}}
+        </div>
+        {{!-- <div id="call-selected">
+            {{!-- todo: remove or update this div once: --}}
+            {{!-- todo: helper to call customer after reaching the shop --}}
+            {{>callToOrder}}
+        </div> --}}
+    </div>
+</div>

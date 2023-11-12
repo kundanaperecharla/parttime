@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const socketio = require('socket.io');
 const bcrypt = require('bcrypt');
 var needle = require('needle');
+const request = require('request');
 
 const viewsPath = path.join(__dirname, './templates/views');
 const partialsPath = path.join(__dirname, './templates/partials');
@@ -35,6 +36,10 @@ app.use(usersRouter);
 app.use(customersRouter);
 app.use(helpersRouter);
 
+app.get('*', (req, res) => {
+    res.render('404');
+});
+
 io.on('connection', (socket) => {
 
     const generateOTP = async (mobile) => {
@@ -59,7 +64,6 @@ io.on('connection', (socket) => {
             console.log(e);
         }
     };
-
 
     const regenerateOTP = async (mobile) => {
         try {
@@ -133,17 +137,137 @@ io.on('connection', (socket) => {
             (err, res) => {
                 if (err)
                     console.error('error', err);
-                else if (res){
+                else if (res) {
                     socket.emit('redirectToHome');
                 }
             }
         );
     };
 
+    // ---------------------------------------------------------------------------------------------
+
+    const getProfile = (baseURL) => {
+        needle.get(baseURL + '/profileDetails', function (err, res) {
+            if (err) {
+                console.error('error', err);
+            }
+            else if (res.statusCode == 200) {
+                socket.emit('postProfile', res.body)
+            }
+        });
+    };
+
+    const saveNameChanges = (newName, baseURL) => {
+        needle.patch(
+            baseURL + '/updateName',
+            { newName },
+            { json: true },
+            function (err, res) {
+                if (err) {
+                    console.error('error', err);
+                }
+                else if (res.statusCode == 200) {
+                    socket.emit('postNameChange', res.body.name)
+                }
+            });
+    };
+
+    // ---------------------------------------------------------------------------------------------
+
+    const getLatLongOfFrom = (fromString) => {
+        request(
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" + fromString + "&key=" + process.env.MAPS_API_KEY,
+            { json: true },
+            (err, res) => {
+                if (err || res.body.status !== "OK") {
+                    console.log(err);
+                } else {
+                    socket.emit('postLatLongOfFrom', res.body.results[0].geometry.location);
+                }
+            }
+        );
+    };
+
+    const getLatLongOfTo = (toString, finalLatLong) => {
+        request(
+            "https://maps.googleapis.com/maps/api/geocode/json?address=" + toString + "&key=" + process.env.MAPS_API_KEY,
+            { json: true },
+            (err, res) => {
+                if (err || res.body.status !== "OK") {
+                    console.log(err);
+                } else {
+                    socket.emit('postLatLongOfTo', res.body.results[0].geometry.location, finalLatLong);
+                }
+            }
+        );
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+    const submit1locationsWithoutFrom = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+    const submit2locationsWithFrom = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+    const submit3orderingItemsViaAll = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+    const submit4orderingItemsViaJustFileUpload = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+    const submit5rideModeOfTransportOptions = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+    const submit6packageModeOfTransportOptions = (data) => {
+        const isDataValid = true;
+        if (isDataValid) {
+            socket.emit('showNextPage');
+        }
+    };
+
+    const loadPrices = () => {
+        const price = 123;
+        const priceUnit = '₹';
+        socket.emit('onPricesLoaded', price + priceUnit);
+    };
+
+    // ---------------------------------------------------------------------------------------------
+
     socket.on('mobileInputted', generateOTP);
     socket.on('otpInputted', validateOTP);
     socket.on('nameInputted', createRecord);
     socket.on('resendOTPRequested', regenerateOTP);
+
+    socket.on('getProfile', getProfile);
+    socket.on('saveNameChanges', saveNameChanges);
+
+    socket.on('getLatLongOfFrom', getLatLongOfFrom);
+    socket.on('getLatLongOfTo', getLatLongOfTo);
+
+    socket.on('submit1locationsWithoutFrom', submit1locationsWithoutFrom);
+    socket.on('submit2locationsWithFrom', submit2locationsWithFrom);
+    socket.on('submit3orderingItemsViaAll', submit3orderingItemsViaAll);
+    socket.on('submit4orderingItemsViaJustFileUpload', submit4orderingItemsViaJustFileUpload);
+    socket.on('submit5rideModeOfTransportOptions', submit5rideModeOfTransportOptions);
+    socket.on('submit6packageModeOfTransportOptions', submit6packageModeOfTransportOptions);
+
+    socket.on('loadPrices', loadPrices);
 });
 
 server.listen(port);

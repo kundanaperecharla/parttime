@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../../css/map.css">
+    <link rel="stylesheet" href="../../css/card.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body id="rendersAll">
+    <div id="1locationsWithoutFrom">{{>1locationsWithoutFrom}}</div>
+    <div id="2locationsWithFrom">{{>2locationsWithFrom}}</div>
+
+    <div id="3orderingItemsViaAll">{{>3orderingItemsViaAll}}</div>
+    <div id="4orderingItemsViaJustFileUpload">{{>4orderingItemsViaJustFileUpload}}</div>
+
+    <div id="5rideModeOfTransportOptions">{{>5rideModeOfTransportOptions}}</div>
+    <div id="6packageModeOfTransportOptions">{{>6packageModeOfTransportOptions}}</div>
+
+    <button id="submit">Submit</button>
+    <script>
+        document.getElementById("1locationsWithoutFrom").style.display = "none";
+        document.getElementById("2locationsWithFrom").style.display = "none";
+        document.getElementById("3orderingItemsViaAll").style.display = "none";
+        document.getElementById("4orderingItemsViaJustFileUpload").style.display = "none";
+        document.getElementById("5rideModeOfTransportOptions").style.display = "none";
+        document.getElementById("6packageModeOfTransportOptions").style.display = "none";
+        const type = "{{type}}";
+    </script>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../js/newRequest.js"></script>
+</body>

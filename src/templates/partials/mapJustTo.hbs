@@ -1,0 +1,12 @@
+<label>{{to_input_label}}</label>
+{{!-- <input id="to_place"/> --}}
+<input id="to_place1" placeholder="To:" />
+
+<button id="submit-to">Search</button>
+
+<div id="map"></div>
+<div id="msg"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="../../js/mapJustTo.js"></script>
+<script async defer src="{{MAPS_URL}}"></script>

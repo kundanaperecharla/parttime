@@ -37,48 +37,63 @@ const requestsSchema = new mongoose.Schema({
         ref: 'Users',
         default: null,
         // required: true
-    }, id: { // Used when request goes into incomplete state and new helper picks it up - but the old helper still has to see the history
+    }, id: {
+        // Used when request goes into incomplete state and new helper picks it up - but the old helper still has to see the history
         type: String
     }, requestDetails: {
-        distance: {
-            // from: { // todo
-
-            // }, to: {
-
-            // }, 
-            kms: {
+        locations: {
+            isFixedRoute: {
+                // for rides - true
+                // for groceries - where from location can be variable - false
+                type: Boolean,
+            }, from: {
+                /**
+                {
+                   textAddress: "secunderabad railway station",
+                   lat: 32.232454,
+                   long: -23.23432
+                }
+                 */
+                textAddress: {
+                    type: String,
+                }, lat: {
+                    type: Number,
+                }, long: {
+                    type: Number,
+                }
+            }, to: {
+                textAddress: {
+                    type: String,
+                }, lat: {
+                    type: Number,
+                }, long: {
+                    type: Number,
+                }
+            },
+        }, listOfItems: [
+            // [{ name: "Oranges", quantity: 3, unitPrice: 20}]
+            {
+                name: {
+                    type: String,
+                }, quantity: {
+                    type: Number,
+                }, unitPrice: {
+                    type: Number
+                }
+            }
+        ], modeOfTransport: {
+            // only if user is travelling along
+            type: String, 
+            enum: ['bike', 'auto', 'car'],
+        }, price: {
+            isFixedPrice: {
+                type: Boolean,
+                default: true
+            }, price: {
                 type: Number,
                 default: 0
             }
-        }, time: {
-            // estimatedTime: { // todo: get from google maps api
-
-            // }, actualTime: {
-                
-            // }, waitingTime: {
-
-            // }
-        }, cost: {
-            travelCost: {
-                type: Number,
-                default: 0
-            }, skillCost: {
-                type: Number,
-                default: 0
-            }, timeCost: {
-                type: Number,
-                default: 0
-            }, extraRequestsCharges: {
-                type: Number,
-                default: 0
-            }, taxes: {
-                type: Number,
-                default: 0
-            }, otherCosts: {
-                type: Number,
-                default: 0
-            }
-        }, 
+        }
     }
 }, {
     timestamps: true

@@ -12,7 +12,7 @@
 <body>
     <div id="content">
         <label id="welcome">Welcome!</label>
-
+{{>testSelectRequestType}}
         <form id="ask">
             <label> I am looking for ...</label>
             <div id="search-bar">
@@ -22,7 +22,14 @@
         </form>
 
         <div id="suggestions">
-
+            <ul>
+                <li id="groceries">Groceries</li>
+                <li id="medicines">Medicines</li>
+                <li id="ride">Ride</li>
+                <li id="tutor">Tutor</li>
+                <li id="dog-walking">Dog walking</li>
+                <li id="wait-in-queue">Wait in a queue</li>
+            </ul>
         </div>
 
         <button>View all services&nbsp;<i class="material-icons">arrow_forward</i></button>
@@ -31,4 +38,6 @@
     <footer id="footer">
         {{>footerCircle}}
     </footer>
+
+    <script src="../../js/home.js"></script>
 </body>
